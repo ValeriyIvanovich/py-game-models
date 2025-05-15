@@ -32,10 +32,12 @@ def main() -> None:
 
         Player.objects.update_or_create(
             nickname=player_nickname,
-            email=player["email"],
-            bio=player["bio"],
-            race=race,
-            guild=guild,
+            defaults={
+                "email": player["email"],
+                "bio": player["bio"],
+                "race": race,
+                "guild": guild
+            }
         )
 
 
